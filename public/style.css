@@ -468,6 +468,156 @@ span{
     margin: auto;
 }
 
+.competence{
+    background-image: linear-gradient(to right ,rgba(24, 24, 24), rgba(4, 4, 4) );
+}
+
+.skill-main{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-row-gap: 30px;
+    grid-column-gap: 50px;
+}
+
+.skill-bar{
+    margin-bottom: 2.3rem;
+}
+
+.skill-main h3{
+    font-size: 4.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.skill-left .skill-bar .info{
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10rem;
+}
+
+.skill-left .skill-bar .bar{
+    width: 300px;
+    height: 10px;
+    background-color: rgb(4, 4, 4);
+    border-radius: 25px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.skill-bar .bar span{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    background: var(--main-color);
+    border-radius: 25px;
+    box-shadow: var(--main-color);
+}
+
+.skill-bar .bar .html{
+    width: 87%;
+    animation: html 2s;
+}
+
+.skill-bar .bar .css{
+    width: 75%;
+    animation: css 3s;
+}
+
+.skill-bar .bar .c{
+    width: 76%;
+    animation: c 4s;
+}
+
+.skill-bar .bar .java{
+    width: 60%;
+    animation: java 5s;
+}
+
+.skill-bar .bar .figma{
+    width: 78%;
+    animation: figma 6s;
+}
+
+.skill-bar .bar .dart{
+    width: 58%;
+    animation: dart 7s;
+}
+
+.skill-bar .bar .js{
+    width: 40%;
+    animation: js 8s;
+}
+
+@keyframes html{
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 87%;
+    }
+}
+
+@keyframes css{
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 75%;
+    }
+}
+
+@keyframes c{
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 76%;
+    }
+}
+
+@keyframes java{
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 60%;
+    }
+}
+
+@keyframes figma{
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 78%;
+    }
+}
+
+@keyframes dart{
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 58%;
+    }
+}
+
+@keyframes js{
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 40%;
+    }
+}
+
+
+
+
 .contact{
     background-image: linear-gradient(to right ,rgba(24, 24, 24), rgba(4, 4, 4) );
 }
