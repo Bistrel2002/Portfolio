@@ -472,6 +472,10 @@ span{
     background-image: linear-gradient(to right ,rgba(24, 24, 24), rgba(4, 4, 4) );
 }
 
+.competence .main-text span{
+    text-align: center;
+    font-size: 3.5rem;
+}
 .skill-main{
     width: 100%;
     display: grid;
@@ -495,7 +499,20 @@ span{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10rem;
+    padding: 0 10rem 0 5rem;
+}
+
+.skill-left .skill-bar i{
+    font-size: 2.5rem;
+    color: var(--main-color);
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 0 12px var(--main-color);
+}
+
+.skill-left .skill-bar i:hover{
+    transform: scale(1.2);
+    color: var(--other-color);
+    box-shadow: 0 0 10px var(--other-color);
 }
 
 .skill-left .skill-bar .bar{
@@ -615,8 +632,68 @@ span{
     }
 }
 
+.professional{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 
+.box{
+    position: relative;
+    margin: 10px 0 ;
+    flex: 1 1 15rem;
+}
 
+.box .text{
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.box .text big{
+    font-weight: 400;
+    letter-spacing: 1px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.box .text small{
+    display: block;
+    font-weight: 600;
+}
+
+.box .circle{
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.points{
+    width: 2px;
+    height: 10px;
+    background-color: var(--main-color);
+    position: absolute;
+    border-radius: 3px;
+    transform: rotate(calc(var(--i) * var(--rot))) translateY(-45px);
+}
+
+.points .marked{
+    animation: glow 0.1s linear forwards;
+    animation-delay: calc(var(--i) * 0.05s);
+}
+
+@keyframes glow{
+    0%{
+        background-image: var(--background-image);
+        box-shadow: none;
+    }
+    100%{
+        background-color: var(--main-color);
+        box-shadow: var(--main-color);
+    }
+}
 
 .contact{
     background-image: linear-gradient(to right ,rgba(24, 24, 24), rgba(4, 4, 4) );
