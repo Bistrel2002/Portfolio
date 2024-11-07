@@ -24,22 +24,34 @@ menuIcon.onclick = () =>{
     navbar.classList.toggle('active')
 }
 
-const circles = document.querySelectorAll('.circle');
-circles.forEach(elem => {
-    var dots = elem.getAttribute("data-dots");
-    var marked = elem.getAttribute("data-percent");
-    var percent = Math.floor(dots * marked / 100);
-    var points = "";
-    var rotate = 360 / dots;
 
-    for (let i = 0; i < dots; i++) {
-        points += `<div class="points" style="--i:${i}; --rot:${rotate}deg"></div>`;
+const boxes = document.querySelectorAll('.box');
+
+boxes.forEach(box => {
+    const text = box.querySelector('.text');
+    const counter = text.querySelector('.counter');
+    const target = +counter.getAttribute('data-target');
+
+    // Create blocks for the background up to 100
+    for (let i = 0; i < target; i++) {
+        const block = document.createElement('div');
+        block.classList.add('block');
+        block.style.transform = `rotate(${3.6 * i}deg)`;
+        block.style.animationDelay = `${i / 50}s`;
+        text.appendChild(block);
     }
 
-    elem.innerHTML = points;
+    counter.innerText = 0;
 
-    const pointMarked = elem.querySelectorAll('.points');
-    for (let i = 0; i < percent; i++) {
-        pointMarked[i].classList.add('marked');
-    }
+    // Animate the blocks up to the target
+    const numberCount = () => {
+        const value = +counter.innerText;
+        if (value < target) {
+            counter.innerText = Math.ceil(value + 1);
+            setTimeout(numberCount, 20);
+        }
+    };
+
+    numberCount();
+
 });

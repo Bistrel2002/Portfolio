@@ -658,6 +658,7 @@ span{
 }
 
 .box .text small{
+    margin-top: 5px;
     display: block;
     font-weight: 600;
 }
@@ -668,31 +669,42 @@ span{
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
-.points{
-    width: 2px;
-    height: 10px;
-    background-color: var(--main-color);
+.box .text .block{
     position: absolute;
-    border-radius: 3px;
-    transform: rotate(calc(var(--i) * var(--rot))) translateY(-45px);
+    width: 1px;
+    height: 15px;
+    /*background-color: rgba(27, 27, 27);*/
+    top : 0;
+    left: 50%;
+    transform-origin: 70% 60px;
+    opacity: 0;
+    animation: glow 1s linear forwards;
 }
 
-.points .marked{
-    animation: glow 0.1s linear forwards;
-    animation-delay: calc(var(--i) * 0.05s);
+.box .text .block:nth-child(-n+104){
+    background-color: var(--main-color);
+    box-shadow: 0 0 15px var(--main-color), 0 0 30px var(--main-color);
 }
 
 @keyframes glow{
-    0%{
-        background-image: var(--background-image);
-        box-shadow: none;
+    to{
+        opacity: 1;
     }
-    100%{
-        background-color: var(--main-color);
-        box-shadow: var(--main-color);
-    }
+}
+
+.box .text big span{
+    color: white;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.box .text big sup{
+    color: white;
+    font-size: 1em;
+    font-weight: 600;
 }
 
 .contact{
