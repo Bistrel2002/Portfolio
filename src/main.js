@@ -48,13 +48,17 @@ boxes.forEach(box => {
 
     // Animate the blocks up to the target
     const numberCount = () => {
-        const value = +counter.innerText;
-        if (value < target) {
-            counter.innerText = Math.ceil(value + 1);
-            setTimeout(numberCount, 20);
-        }
+        counter.innerText = 0;
+        const animateCount = () => {
+            const value = +counter.innerText;
+            if (value < target) {
+                counter.innerText = Math.ceil(value + 1);
+                setTimeout(animateCount, 20);
+            }
+        };
+        animateCount();
     };
 
     numberCount();
-
+    setInterval(numberCount, 7000);
 });
