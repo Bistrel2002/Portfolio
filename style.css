@@ -12,10 +12,34 @@
 :root {
     --background-image: linear-gradient(to right, rgba(24, 24, 24), rgba(0, 0, 0));
     --text-color: white;
-    --main-color: rgba(138, 43, 226);
+    --main-color: #00ff41;            /* Vert matrix */
     --secondary-color: rgb(220, 220, 220);
-    --tertiary-color: rgba(255, 20, 147);
-    --other-color: rgba(0, 255, 255);
+    --tertiary-color: #00d4ff;        /* Bleu néon */
+    --other-color: #1bd64a;           /* Rose électrique */
+    --header-bg: rgb(0, 0, 1);
+    --section-bg: linear-gradient(to right, rgba(24, 24, 24), rgba(4, 4, 4));
+    --card-bg: var(--main-color);
+    --timeline-bg: var(--background-image);
+    --input-bg: linear-gradient(to right, rgba(24, 24, 24), rgba(4, 4, 4));
+    --footer-bg: linear-gradient(to right, rgba(20, 20, 20), rgba(4, 4, 4));
+    --button-text-color: black;
+}
+
+/* Light theme variables */
+:root.light-theme {
+    --background-image: linear-gradient(to right, rgba(245, 245, 245), rgba(255, 255, 255));
+    --text-color: #333333;
+    --main-color: #007acc;            /* Bleu professionnel */
+    --secondary-color: rgb(100, 100, 100);
+    --tertiary-color: #0066cc;        /* Bleu clair */
+    --other-color: #0099ff;           /* Bleu électrique */
+    --header-bg: rgba(255, 255, 255, 0.95);
+    --section-bg: linear-gradient(to right, rgba(250, 250, 250), rgba(240, 240, 240));
+    --card-bg: var(--main-color);
+    --timeline-bg: var(--background-image);
+    --input-bg: linear-gradient(to right, rgba(250, 250, 250), rgba(240, 240, 240));
+    --footer-bg: linear-gradient(to right, rgba(230, 230, 230), rgba(240, 240, 240));
+    --button-text-color: white;
 }
 
 html{
@@ -34,12 +58,120 @@ body{
     left: 0;
     width: 100%;
     padding: 3rem 12% 3rem;
-    background: rgb(0, 0, 1);
+    background: var(--header-bg);
     backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 5;
+    transition: background 0.3s ease;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+#theme-toggle {
+    font-size: 2.5rem;
+    color: var(--main-color);
+    cursor: pointer;
+    transition: 0.3s ease;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    padding: 0.5rem;
+    background: transparent;
+}
+
+#theme-toggle:hover {
+    color: var(--other-color);
+    border-color: var(--main-color);
+    transform: scale(1.1);
+    background: rgba(0, 255, 65, 0.1);
+}
+
+/* Light theme hover effect for theme toggle */
+:root.light-theme #theme-toggle:hover {
+    background: rgba(0, 122, 204, 0.1);
+}
+
+/* Light theme adjustments */
+:root.light-theme .portfolio {
+    color: white;
+}
+
+:root.light-theme .portfolio h2 {
+    color: var(--text-color);
+}
+
+:root.light-theme .contact h2 {
+    color: var(--text-color);
+}
+
+:root.light-theme .timeline-content:hover {
+    color: white;
+}
+
+:root.light-theme .portfolio-box:hover {
+    color: white;
+}
+
+/* Light theme portfolio adjustments */
+:root.light-theme .portfolio-info .role {
+    color: var(--text-color);
+}
+
+:root.light-theme .github-link {
+    color: var(--text-color);
+    background: rgba(0, 0, 0, 0.05);
+}
+
+:root.light-theme .github-link:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: var(--main-color);
+}
+
+/* Light theme portfolio overlay */
+:root.light-theme .portfolio-overlay {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+:root.light-theme .portfolio-overlay i {
+    color: var(--main-color);
+}
+
+/* Light theme skills bar background */
+:root.light-theme .skill-left .skill-bar .bar {
+    background-color: rgba(200, 200, 200, 0.3);
+}
+
+/* Light theme navbar adjustments */
+:root.light-theme .navbar a {
+    color: var(--text-color);
+}
+
+:root.light-theme .navbar a:hover,
+:root.light-theme .navbar a.active {
+    color: var(--main-color);
+}
+
+/* Light theme footer adjustments */
+:root.light-theme .footer ul li a {
+    color: var(--text-color);
+}
+
+:root.light-theme .footer .copyright {
+    color: var(--text-color);
+}
+
+/* Light theme Professional Skills percentages */
+:root.light-theme .box .text big span {
+    color: var(--text-color);
+}
+
+:root.light-theme .box .text big sup {
+    color: var(--text-color);
 }
 
 .logo{
@@ -150,13 +282,12 @@ span{
 }
 
 .social-icons a{
-    display: inline-block;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     width: 4.5rem;
     height: 4.5rem;
     background: transparent;
-    padding: 0.4rem 0.8rem 0.4rem 0.8rem;
     border: 2px solid var(--main-color);
     font-size: 2.5rem;
     border-radius: 50%;
@@ -180,7 +311,7 @@ span{
     box-shadow: 0 0 23px var(--main-color);
     border-radius: 4rem;
     font-size: 1.6rem;
-    color: black;
+    color: var(--button-text-color);
     border: 2px solid transparent;
     letter-spacing: 0.1rem;
     font-weight: 600;
@@ -189,7 +320,7 @@ span{
 }
 
 .btn:hover{
-    color: black;
+    color: var(--button-text-color);
     transform: scale(1.05);
     box-shadow: 0 0 50px var(--main-color);
     background: var(--other-color);
@@ -202,18 +333,18 @@ span{
 }
 
 .btn-group a:nth-of-type(2){
-    color: var(--main-color);
-    background: black;
+    color: var(--button-text-color);
+    background: var(--main-color);
     border: 2px solid var(--main-color);
-    box-shadow: 0 0 25px transparent;
+    box-shadow: 0 0 23px var(--main-color);
 }
 
 .btn-group a:nth-of-type(2):hover{
-    box-shadow: 0 0 25px var(--main-color);
-    background: var(--main-color);
+    box-shadow: 0 0 50px var(--main-color);
     background: var(--other-color);
     border-color: var(--other-color);
-    color: black;
+    color: var(--button-text-color);
+    transform: scale(1.05);
 }
 
 .text-animation {
@@ -269,7 +400,7 @@ span{
     }
     81%,
     100%{
-        content: " App Developper";
+        content: " App Developer";
     }
     101%,
     120%{
@@ -281,7 +412,7 @@ span{
     }
     141%,
     160%{
-        content: " Program Mangement";
+        content: " Program Management";
     }
 }
 
@@ -319,7 +450,8 @@ span{
 
 .education{
     padding: 100px 15px;
-    background-image: linear-gradient(to right ,rgba(24, 24, 24), rgba(4, 4, 4) );
+    background-image: var(--section-bg);
+    transition: background 0.3s ease;
 }
 
 .education h2{
@@ -382,7 +514,7 @@ span{
 }
 
 .timeline-content{
-    background-image: var(--background-image);
+    background-image: var(--timeline-bg);
     border: 3px solid var(--main-color);
     padding: 30px 50px;
     border-radius: 4rem;
@@ -410,66 +542,161 @@ span{
     line-height: 22px;
 }
 
-.services{
+.portfolio{
     color: black;
-    background-image: linear-gradient(to right ,rgba(24, 24, 24), rgba(4, 4, 4) );
+    background-image: var(--section-bg);
+    transition: background 0.3s ease;
 }
 
-.services h2{
+.portfolio h2{
     margin-bottom: 5rem;
     color: white;
 }
 
-.services-container{
+.portfolio-container{
     display: grid;
     grid-template-columns: repeat(2,1fr);
     align-items: center;
     gap: 2.5rem;
 }
 
-.services-box{
-    background-color: var(--main-color);
-    height: 300px;
+.portfolio-box{
+    background-color: var(--card-bg);
+    height: 550px;
     border-radius: 3rem;
     border: 5px solid transparent;
     cursor: pointer;
     transition: 0.4s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
-.services-box:hover{
+.portfolio-box:hover{
     background: var(--other-color);
     color: black;
     border: 3px solid var(--main-color);
     transform: scale(1.03);
 }
 
-.services-box .services-info{
+.portfolio-image{
+    position: relative;
+    height: 550px;
+    overflow: hidden;
+    border-radius: 3rem 3rem 0 0;
+}
+
+.portfolio-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.4s ease-in-out;
+}
+
+.portfolio-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.4s ease-in-out;
+}
+
+.portfolio-overlay i{
+    font-size: 3rem;
+    color: white;
+    transform: scale(0);
+    transition: 0.4s ease-in-out;
+}
+
+.portfolio-box:hover .portfolio-overlay{
+    opacity: 1;
+}
+
+.portfolio-box:hover .portfolio-overlay i{
+    transform: scale(1);
+}
+
+.portfolio-box:hover .portfolio-image img{
+    transform: scale(1.1);
+}
+
+.portfolio-box .portfolio-info{
     display: flex;
     flex-direction: column;
     text-align: left;
-    max-height: 200px;
-    justify-content: left;
+    height: 300px;
+    justify-content: flex-start;
     align-items: baseline;
-    padding: 5rem 5rem;
+    padding: 2rem 2.5rem;
 }
 
-.services-info h4{
-    font-size: 3rem;
+.portfolio-info h4{
+    font-size: 2.2rem;
     font-weight: 800;
-    line-height: 1;
-    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    margin-bottom: 0.8rem;
 }
 
-.services-info p{
-    font-size: 1.6rem;
-    font-weight: 500;
-    max-height: 100px;
-    line-height: 1.7;
-    margin: auto;
+.portfolio-info .role{
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.portfolio-info .role span{
+    color: var(--main-color);
+    font-weight: 700;
+}
+
+.portfolio-info p:not(.role){
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.github-link{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: rgba(0, 0, 0, 0.1);
+    color: var(--text-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: 0.3s ease;
+    border: 2px solid transparent;
+    text-decoration: none;
+    align-self: flex-start;
+    backdrop-filter: blur(10px);
+    margin-top: 0.5rem;
+}
+
+.github-link:hover{
+    background: rgba(0, 0, 0, 0.2);
+    border-color: var(--main-color);
+    color: var(--main-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.github-link i{
+    font-size: 1.5rem;
 }
 
 .competence{
-    background-image: linear-gradient(to right ,rgba(24, 24, 24), rgba(4, 4, 4) );
+    background-image: var(--section-bg);
+    transition: background 0.3s ease;
 }
 
 .competence .main-text span{
@@ -713,7 +940,8 @@ span{
 }
 
 .contact{
-    background-image: linear-gradient(to right ,rgba(24, 24, 24), rgba(4, 4, 4) );
+    background-image: var(--section-bg);
+    transition: background 0.3s ease;
 }
 
 .contact h2{
@@ -742,14 +970,15 @@ span{
     padding: 2.5rem;
     font-size: 1.8rem;
     color: var(--text-color);
-    background-image: linear-gradient(to right ,rgba(24, 24, 24), rgba(4, 4, 4) );
+    background-image: var(--input-bg);
     border-radius: 2rem;
     border: 2px solid var(--main-color);
     margin: 1.5rem 0;
     resize: none;
+    transition: background 0.3s ease;
 }
 
-.contact form .btn{
+.btn{
     margin-top: 2rem;
 }
 
@@ -758,7 +987,8 @@ span{
     bottom: 0;
     width: 100%;
     padding: 40px 0;
-    background-image: linear-gradient(to right ,rgba(20, 20, 20), rgba(4, 4, 4) );
+    background-image: var(--footer-bg);
+    transition: background 0.3s ease;
 }
 
 .footer .social{
@@ -823,7 +1053,7 @@ span{
     html{
         font-size: 55%;
     }
-    .services-container{
+    .portfolio-container{
         padding-bottom: 7rem;
         grid-template-columns: repeat(2,1fr);
         margin: 0 5rem;
@@ -851,10 +1081,10 @@ span{
     .timeline-dot{
         left: 0;
     }
-    .services{
+    .portfolio{
         padding-bottom: 7rem;
     }
-    .services{
+    .portfolio{
         padding-bottom: 7rem;
     }
     .testimonial .wrapper{
@@ -871,18 +1101,28 @@ span{
     #menu-icon{
         display: block;
     }
+    
+    .header-controls {
+        gap: 1.5rem;
+    }
+    
+    #theme-toggle {
+        font-size: 2.2rem;
+        padding: 0.3rem;
+    }
     .navbar{
         position: absolute;
         top: 100%;
         right: 0;
         width: 50%;
         padding: 1rem 3%;
-        background-image: linear-gradient(to right ,rgba(20, 20, 20), rgba(4, 4, 4) );
+        background-image: var(--section-bg);
         backdrop-filter: blur(20px);
         border-bottom-left-radius: 2rem;
         border-left: 2px solid var(--main-color);
         border-right: 2px solid var(--main-color);
         display: none;
+        transition: background 0.3s ease;
     }
 
     .navbar.active{
@@ -914,10 +1154,10 @@ span{
         width: 56vw;
         height: 56vw;
     }
-    .services h2{
+    .portfolio h2{
         margin-bottom: 3rem;
     }
-    .services-container{
+    .portfolio-container{
         grid-template-columns: repeat(1,1fr);
     }
 }
@@ -929,6 +1169,15 @@ span{
 
     .header {
         padding: 2rem 5%;
+    }
+    
+    .header-controls {
+        gap: 1rem;
+    }
+    
+    #theme-toggle {
+        font-size: 2rem;
+        padding: 0.2rem;
     }
 
     .navbar {
@@ -960,15 +1209,48 @@ span{
         height: auto;
     }
 
-    .services-container {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+    .portfolio-container {
+        grid-template-columns: repeat(1,1fr);
     }
 
-    .services-box{
-        width: 40em;
-        height: 40em;
+    .portfolio h2{
+        margin-bottom: 3rem;
     }
+
+    .portfolio-box{
+        height: 500px;
+    }
+
+    .portfolio-image{
+        height: 220px;
+    }
+
+    .portfolio-info{
+        height: 280px;
+        padding: 1.5rem 2rem;
+    }
+
+    .portfolio-info h4{
+        font-size: 1.8rem;
+    }
+
+    .portfolio-info .role{
+        font-size: 1.2rem;
+    }
+
+    .portfolio-info p:not(.role){
+        font-size: 1.2rem;
+    }
+
+    .github-link{
+        font-size: 1.1rem;
+        padding: 0.7rem 1.3rem;
+    }
+
+    /*.services-box{*/
+    /*    width: 40em;*/
+    /*    height: 40em;*/
+    /*}*/
     .skill-main {
         grid-template-columns: 1fr;
     }

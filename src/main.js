@@ -62,3 +62,47 @@ boxes.forEach(box => {
     numberCount();
     setInterval(numberCount, 7000);
 });
+
+// Theme toggle functionality
+const themeToggle = document.querySelector('#theme-toggle');
+const body = document.body;
+const html = document.documentElement;
+
+// Function to set theme
+function setTheme(theme) {
+    if (theme === 'light') {
+        html.classList.add('light-theme');
+        themeToggle.classList.remove('bx-moon');
+        themeToggle.classList.add('bx-sun');
+        localStorage.setItem('theme', 'light');
+    } else {
+        html.classList.remove('light-theme');
+        themeToggle.classList.remove('bx-sun');
+        themeToggle.classList.add('bx-moon');
+        localStorage.setItem('theme', 'dark');
+    }
+}
+
+// Check for saved theme preference or default to dark
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+    setTheme(savedTheme);
+} else {
+    // Check user's system preference
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setTheme(prefersDark ? 'dark' : 'light');
+}
+
+// Theme toggle event listener
+themeToggle.addEventListener('click', () => {
+    const currentTheme = html.classList.contains('light-theme') ? 'light' : 'dark';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+});
+
+// Listen for system theme changes
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+        setTheme(e.matches ? 'dark' : 'light');
+    }
+});
