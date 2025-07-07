@@ -6,6 +6,8 @@
   <title>WS playground</title>
   <link rel="stylesheet" href="style.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <!-- EmailJS -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -13,16 +15,17 @@
       <a href="#home" class="logo">Bistrel <span>Tsangue</span></a>
 
       <div class="header-controls">
+        <i class='bx bx-globe' id="language-toggle" title="Switch Language"></i>
         <i class='bx bx-moon' id="theme-toggle"></i>
         <i class='bx bx-menu' id="menu-icon"></i>
       </div>
 
       <nav class="navbar">
-        <a href="#home" class="active">Home</a>
-        <a href="#education">Education</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#competence">Competence</a>
-        <a href="#contact">Contact </a>
+        <a href="#home" class="active" data-translate="nav_home">Home</a>
+        <a href="#education" data-translate="nav_education">Education</a>
+        <a href="#portfolio" data-translate="nav_portfolio">Portfolio</a>
+        <a href="#competence" data-translate="nav_competence">Competence</a>
+        <a href="#contact" data-translate="nav_contact">Contact</a>
       </nav>
   </header>
 
@@ -30,11 +33,11 @@
 
   <section class="home" id="home">
     <div class="home-content">
-      <h1>
+      <h1 data-translate="hero_title">
         Hellooo! It's <span>Bistrel</span>
       </h1>
-      <h3 class="text-animation">I'm a <span> </span></h3>
-      <p>
+      <h3 class="text-animation" data-translate="hero_subtitle">I'm a <span> </span></h3>
+      <p data-translate="hero_description">
         21-year-old student in his third year at ALGOSUP,
         deeply immersed in advanced studies that focus on technology and
         software development. With a keen interest in both theoretical and
@@ -55,8 +58,8 @@
       </div>
 
       <div class="btn-group">
-        <a href="#" class="btn">Hire</a>
-        <a href="#contact" class="btn">Contact</a>
+        <a href="mailto:tbistrel@gmail.com" class="btn" data-translate="btn_hire">Hire</a>
+        <a href="#contact" class="btn" data-translate="btn_contact">Contact</a>
       </div>
     </div>
       <div class="home-img">
@@ -65,7 +68,7 @@
   </section>
 
   <section class="education" id="education">
-    <h2 class="heading">Education</h2>
+    <h2 class="heading" data-translate="section_education">Education</h2>
 
     <div class="timeline-items">
 
@@ -108,125 +111,128 @@
   </section>
 
   <section class="portfolio" id="portfolio">
-    <h2 class="heading">Portfolio</h2>
+    <h2 class="heading" data-translate="section_portfolio">Portfolio</h2>
     <div class="portfolio-container">
 
-      <div class="portfolio-box">
-        <div class="portfolio-image">
-          <img src="https://via.placeholder.com/400x200/00ff41/000000?text=Memory+Game">
-          <div class="portfolio-overlay">
-            <i class='bx bx-link-external'></i>
-          </div>
+      <div class="portfolio-box" style="background-image: url('images/ar1.png');">
+        <div class="portfolio-background-overlay"></div>
+        <div class="portfolio-title">
+          <h4>LOCINDOOR</h4>
         </div>
         <div class="portfolio-info">
-          <h4>ALGOSUP Memory Game</h4>
-          <p class="role">Role: <span>Frontend Developer</span></p>
-          <p>
-            Interactive memory game developed for ALGOSUP using HTML, CSS, and JavaScript.
-            Features responsive design, smooth animations, and progressive difficulty levels.
+          <h4 data-translate="project_locindoor_title">LOCINDOOR</h4>
+                      <p class="role" data-translate="project_locindoor_role">Role: <span>Devlopper, Project Manager, Technical Lead, Program Manager, Quality Assurance</span></p>
+            <p data-translate="project_locindoor_description">
+            As the sole developer and creator of LOCINDOOR, I independently managed every aspect of the 
+            project—from initial concept and design to coding, testing, and deployment. I'm developping the 
+            augmented reality navigation system, integrated Bluetooth beacon technology, so as to ensure the 
+            application’s reliability and user experience. This project demonstrates my ability to take 
+            full ownership, solve complex technical challenges, and deliver an innovative solution 
+            entirely on my own.
           </p>
-          <a href="https://github.com/Bistrel2002/memory-game" class="github-link" target="_blank">
-            <i class='bx bxl-github'></i> View on GitHub
+          <a href="https://github.com/Bistrel2002/MOONSHOT-PROJECT" class="github-link" target="_blank">
+            <i class='bx bxl-github'></i> <span data-translate="view_github">View on GitHub</span>
           </a>
         </div>
       </div>
 
-      <div class="portfolio-box">
-        <div class="portfolio-image">
-          <img src="https://via.placeholder.com/400x200/007acc/ffffff?text=E-Commerce+Platform">
-          <div class="portfolio-overlay">
-            <i class='bx bx-link-external'></i>
-          </div>
+      <div class="portfolio-box" style="background-image: url('images/eco2.png');">
+        <div class="portfolio-background-overlay"></div>
+        <div class="portfolio-title">
+          <h4>SERIOUS GAME</h4>
         </div>
         <div class="portfolio-info">
-          <h4>E-Commerce Platform</h4>
-          <p class="role">Role: <span>Full Stack Developer</span></p>
-          <p>
-            Modern e-commerce platform built with React and Node.js. Features include
-            product catalog, shopping cart, payment integration, and admin dashboard.
+                      <h4 data-translate="project_greencity_title">GREEN CITY</h4>
+                        <p class="role" data-translate="project_greencity_role">Role: <span>Project Manager</span></p>
+            <p data-translate="project_greencity_description">
+            I had the opportunity to be the project manager of the Green City project. I managed the 
+            development of Green City by planning, distributing tasks, and facilitating communication within the team. 
+            I ensured that every feature aligned with the project’s educational and environmental goals, while maintaining 
+            deadlines and a high-quality gameplay experience. 
           </p>
-          <a href="https://github.com/Bistrel2002/ecommerce-platform" class="github-link" target="_blank">
-            <i class='bx bxl-github'></i> View on GitHub
+          <a href="https://github.com/algosup/2024-2025-project-2-serious-game-team-3" class="github-link" target="_blank">
+            <i class='bx bxl-github'></i> <span data-translate="view_github">View on GitHub</span>
           </a>
         </div>
       </div>
 
-      <div class="portfolio-box">
-        <div class="portfolio-image">
-          <img src="https://via.placeholder.com/400x200/0099ff/ffffff?text=Task+Manager+App">
-          <div class="portfolio-overlay">
-            <i class='bx bx-link-external'></i>
-          </div>
+      <div class="portfolio-box" style="background-image: url('images/multicultural-wedding-celebration-illustration-vector.jpg');">
+        <div class="portfolio-background-overlay"></div>
+        <div class="portfolio-title">
+          <h4>AFRICA WEDDING</h4>
         </div>
         <div class="portfolio-info">
-          <h4>Task Management App</h4>
-          <p class="role">Role: <span>Project Manager & Developer</span></p>
-          <p>
-            Collaborative task management application developed with Flutter/Dart.
-            Features team collaboration, real-time updates, and cross-platform compatibility.
+                      <h4 data-translate="project_africawedding_title">Africa Wedding</h4>
+                        <p class="role" data-translate="project_africawedding_role">Role: <span>Frontend & Backend Developer</span></p>
+            <p data-translate="project_africawedding_description">
+            I designed and developed the entire website, from frontend visuals to backend implementation. 
+            I integrated traditional African graphic elements to create an authentic user experience. 
+            My work resulted in a modern, personalized digital wedding invitation.
           </p>
-          <a href="https://github.com/Bistrel2002/task-manager" class="github-link" target="_blank">
-            <i class='bx bxl-github'></i> View on GitHub
+          <a href="https://mariage-africain.onrender.com" class="github-link" target="_blank">
+            🧑🏾‍💻<span data-translate="view_website">View website</span>
           </a>
         </div>
       </div>
 
-      <div class="portfolio-box">
-        <div class="portfolio-image">
-          <img src="https://via.placeholder.com/400x200/00d4ff/000000?text=Weather+Forecast+App">
-          <div class="portfolio-overlay">
-            <i class='bx bx-link-external'></i>
-          </div>
+      <div class="portfolio-box" style="background-image: url('images/VP1\ copy.webp');">
+        <div class="portfolio-background-overlay"></div>
+        <div class="portfolio-title">
+          <h4>VIRTUAL PROCESSOR</h4>
         </div>
         <div class="portfolio-info">
-          <h4>Weather Forecast App</h4>
-          <p class="role">Role: <span>Mobile Developer</span></p>
-          <p>
-            Cross-platform weather application built with Flutter. Integrates with
-            weather APIs to provide real-time forecasts, location-based services.
+                      <h4 data-translate="project_virtualprocessor_title">Virtual Processor</h4>
+                        <p class="role" data-translate="project_virtualprocessor_role">Role: <span>Software Developper</span></p>
+            <p data-translate="project_virtualprocessor_description">
+            As a software developer, I designed and implemented a virtual processor and its interpreter in C, 
+            getting reference from the LC3 Architecture. I handled the architecture modeling, instruction 
+            execution code, and technical documentation to help in executing the program, and ensuring the project’s 
+            portability.
           </p>
-          <a href="https://github.com/Bistrel2002/weather-app" class="github-link" target="_blank">
-            <i class='bx bxl-github'></i> View on GitHub
+          <a href="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-6" class="github-link" target="_blank">
+            <i class='bx bxl-github'></i> <span data-translate="view_github">View on GitHub</span>
           </a>
         </div>
       </div>
 
-      <div class="portfolio-box">
-        <div class="portfolio-image">
-          <img src="https://via.placeholder.com/400x200/8b5cf6/ffffff?text=FPGA+DSP+System">
-          <div class="portfolio-overlay">
-            <i class='bx bx-link-external'></i>
-          </div>
+      <div class="portfolio-box" style="background-image: url('images/QP.webp');">
+        <div class="portfolio-background-overlay"></div>
+        <div class="portfolio-title">
+          <h4>QUICKEST PATH</h4>
         </div>
         <div class="portfolio-info">
-          <h4>FPGA Digital Signal Processing</h4>
-          <p class="role">Role: <span>Hardware Developer</span></p>
-          <p>
-            Digital signal processing system implemented on FPGA using VHDL.
-            Features real-time audio processing and filter implementations.
+                      <h4 data-translate="project_quickestpath_title">Quickest Path</h4>
+                        <p class="role" data-translate="project_quickestpath_role">Role: <span>Software Developper</span></p>
+            <p data-translate="project_quickestpath_description">
+            As a developer, I was responsible for verifying that the graph—containing 24 million nodes—was a true 
+            Directed Acyclic Graph (DAG) before implementing any pathfinding algorithms. I then optimized the core 
+            algorithm to compute the fastest path between two landmarks in under one second, combining bidirectional 
+            search with Dijkstra’s. My work ensured both the structural integrity of the data and the high performance 
+            of the solution.
           </p>
-          <a href="https://github.com/Bistrel2002/fpga-dsp" class="github-link" target="_blank">
-            <i class='bx bxl-github'></i> View on GitHub
+          <a href="https://github.com/algosup/2024-2025-project-3-quickest-path-team-3" class="github-link" target="_blank">
+            <i class='bx bxl-github'></i> <span data-translate="view_github">View on GitHub</span>
           </a>
         </div>
       </div>
 
-      <div class="portfolio-box">
-        <div class="portfolio-image">
-          <img src="https://via.placeholder.com/400x200/ff6b6b/ffffff?text=AR+Game+Project">
-          <div class="portfolio-overlay">
-            <i class='bx bx-link-external'></i>
-          </div>
+      <div class="portfolio-box" style="background-image: url('images/VP.webp');">
+        <div class="portfolio-background-overlay"></div>
+        <div class="portfolio-title">
+          <h4>WEB FPGA</h4>
         </div>
         <div class="portfolio-info">
-          <h4>Augmented Reality Game</h4>
-          <p class="role">Role: <span>AR Developer & Technical Lead</span></p>
-          <p>
-            Immersive augmented reality game developed with Unity and ARCore.
-            Features 3D object recognition, spatial mapping, and interactive gameplay.
+                      <h4 data-translate="project_webfpga_title">Web FPGA</h4>
+                        <p class="role" data-translate="project_webfpga_role">Role: <span>Program Manager</span></p>
+            <p data-translate="project_webfpga_description">
+            As Program Manager, I was responsible for creating the project’s functional specification document by 
+            working closely with the client to understand and define their needs. I facilitated discussions, 
+            gathered requirements, and translated them into clear technical guidelines for the team. My role ensured 
+            that the final product aligned with the client’s expectations and that all development efforts were focused 
+            on delivering real value.
           </p>
-          <a href="https://github.com/Bistrel2002/ar-game" class="github-link" target="_blank">
-            <i class='bx bxl-github'></i> View on GitHub
+          <a href="https://github.com/algosup/2024-2025-project-4-web-fpga-team-3" class="github-link" target="_blank">
+            <i class='bx bxl-github'></i> <span data-translate="view_github">View on GitHub</span>
           </a>
         </div>
       </div>
@@ -236,39 +242,17 @@
 
   <section class="competence" id="competence">
     <div class="main-text">
-      <h2 class="heading">Competence</h2>
+      <h2 class="heading" data-translate="section_competence">Competence</h2>
     </div>
 
     <div class="skill-main">
       <div class="skill-left">
-        <h3>Technical Skills</h3>
-        <div class="skill-bar">
-          <div class="info">
-            <i class='bx bxl-html5' ></i>
-            <p>HTML</p>
-            <p>87%</p>
-          </div>
-          <div class="bar">
-              <span class="html"></span>
-          </div>
-        </div>
-
-        <div class="skill-bar">
-          <div class="info">
-            <i class='bx bxl-css3' ></i>
-            <p>CSS</p>
-            <p>75%</p>
-          </div>
-          <div class="bar">
-            <span class="css"></span>
-          </div>
-        </div>
-
+        <h3 data-translate="technical_skills">Technical Skills</h3>
         <div class="skill-bar">
           <div class="info">
             <i class='bx bxl-c-plus-plus' ></i>
             <p>C</p>
-            <p>76%</p>
+            <p>50%</p>
           </div>
           <div class="bar">
             <span class="c"></span>
@@ -277,20 +261,42 @@
 
         <div class="skill-bar">
           <div class="info">
-            <i class='bx bxl-java' ></i>
-            <p>JAVA</p>
-            <p>60%</p>
+            <i class='bx bxl-microsoft' ></i>
+            <p>C#</p>
+            <p>35%</p>
           </div>
           <div class="bar">
-            <span class="java"></span>
+            <span class="c-sharp"></span>
+          </div>
+        </div>
+
+        <div class="skill-bar">
+          <div class="info">
+            <i class='bx bxl-c-plus-plus' ></i>
+            <p>C++</p>
+            <p>40%</p>
+          </div>
+          <div class="bar">
+            <span class="cpp"></span>
+          </div>
+        </div>
+
+        <div class="skill-bar">
+          <div class="info">
+            <i class='bx bxl-unity' ></i>
+            <p>Unity</p>
+            <p>57%</p>
+          </div>
+          <div class="bar">
+            <span class="unity"></span>
           </div>
         </div>
 
         <div class="skill-bar">
           <div class="info">
             <i class='bx bxl-figma'></i>
-            <p>FIGMA</p>
-            <p>78%</p>
+            <p>Figma</p>
+            <p>65%</p>
           </div>
           <div class="bar">
             <span class="figma"></span>
@@ -300,8 +306,8 @@
         <div class="skill-bar">
           <div class="info">
             <i class='bx bxl-flutter' ></i>
-            <p>DART</p>
-            <p>58%</p>
+            <p>Dart</p>
+            <p>60%</p>
           </div>
           <div class="bar">
             <span class="dart"></span>
@@ -310,18 +316,18 @@
 
         <div class="skill-bar">
           <div class="info">
-            <i class='bx bxl-javascript' ></i>
-            <p>JAVASCRIPT</p>
-            <p>40%</p>
+            <i class='bx bxl-python' ></i>
+            <p>Python</p>
+            <p>60%</p>
           </div>
           <div class="bar">
-            <span class="js"></span>
+            <span class="python"></span>
           </div>
         </div>
 
       </div>
       <div class="skill-right">
-        <h3>Professional Skills</h3>
+        <h3 data-translate="professional_skills">Professional Skills</h3>
         <div class="professional">
 
           <div class ="box">
@@ -386,27 +392,42 @@
 
 
     <section class="contact" id="contact">
-      <h2 class="heading">Contact <span>Me</span></h2>
+      <h2 class="heading" data-translate="section_contact">Contact <span>Me</span></h2>
 
-      <form action="">
+      <form id="contact-form">
 
         <div class="input-group">
           <div class="input-box">
-            <input type="text" placeholder="Full Name">
-            <input type="email" placeholder="Email">
+            <input type="text" name="Name" placeholder="Full Name" data-translate-placeholder="form_full_name" required>
+            <input type="email" name="Email" placeholder="Email" data-translate-placeholder="form_email" required>
           </div>
           <div class="input-box">
-            <input type="number" placeholder="Phone Number">
-            <input type="text" placeholder="subject">
+            <input type="tel" name="Phone" placeholder="Phone Number" data-translate-placeholder="form_phone">
+            <input type="text" name="Sujet" placeholder="Subject" data-translate-placeholder="form_subject" required>
           </div>
         </div>
 
         <div class="input-group-2">
-          <textarea name="" id="" cols="30" rows="10" placeholder="your Message">
-          </textarea>
-          <input type="submit" value="Send Message" class="btn">
+          <textarea name="Message" id="message" cols="30" rows="10" placeholder="Your Message" data-translate-placeholder="form_message" required></textarea>
+          <button type="submit" class="btn" id="submit-btn">
+            <span class="btn-text" data-translate="form_send">Send Message</span>
+            <span class="btn-loading" data-translate="form_sending" style="display: none;">Sending...</span>
+          </button>
         </div>
       </form>
+
+      <!-- Message de confirmation -->
+      <div id="success-message" style="display: none;">
+        <p style="color: var(--main-color); text-align: center; margin-top: 2rem; font-size: 1.6rem;" data-translate="form_success">
+          ✅ Message sent successfully! I'll get back to you soon.
+        </p>
+      </div>
+
+      <div id="error-message" style="display: none;">
+        <p style="color: #ff6b6b; text-align: center; margin-top: 2rem; font-size: 1.6rem;" data-translate="form_error">
+          ❌ Failed to send message. Please try again.
+        </p>
+      </div>
     </section>
   <footer class="footer">
     <div class="social">
@@ -435,5 +456,7 @@
     </p>
   </footer>
   <script type="module" src="src/main.js"></script>
+  <script src="src/contact-form.js"></script>
+  <script src="src/translations.js"></script>
 </body>
 </html>

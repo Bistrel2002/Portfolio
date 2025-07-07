@@ -39,7 +39,7 @@
     --timeline-bg: var(--background-image);
     --input-bg: linear-gradient(to right, rgba(250, 250, 250), rgba(240, 240, 240));
     --footer-bg: linear-gradient(to right, rgba(230, 230, 230), rgba(240, 240, 240));
-    --button-text-color: white;
+    --button-text-color: black;
 }
 
 html{
@@ -73,6 +73,24 @@ body{
     gap: 2rem;
 }
 
+#language-toggle {
+    font-size: 2.5rem;
+    color: var(--main-color);
+    cursor: pointer;
+    transition: 0.3s ease;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    padding: 0.5rem;
+    background: transparent;
+}
+
+#language-toggle:hover {
+    color: var(--other-color);
+    border-color: var(--main-color);
+    transform: scale(1.1);
+    background: rgba(0, 255, 65, 0.1);
+}
+
 #theme-toggle {
     font-size: 2.5rem;
     color: var(--main-color);
@@ -96,9 +114,19 @@ body{
     background: rgba(0, 122, 204, 0.1);
 }
 
+/* Light theme hover effect for language toggle */
+:root.light-theme #language-toggle:hover {
+    background: rgba(0, 122, 204, 0.1);
+}
+
 /* Light theme adjustments */
 :root.light-theme .portfolio {
     color: white;
+    
+}
+
+:root.light-theme .portfolio-box {
+    background: rgba(100, 100, 100, 0.3);
 }
 
 :root.light-theme .portfolio h2 {
@@ -113,32 +141,65 @@ body{
     color: white;
 }
 
-:root.light-theme .portfolio-box:hover {
-    color: white;
+:root.light-theme .portfolio-box:hover::before {
+    filter: blur(0px);
+
 }
 
 /* Light theme portfolio adjustments */
+:root.light-theme .portfolio-info h4 {
+    color: white;
+}
+
+:root.light-theme .portfolio-info p:not(.role) {
+    color: white;
+}
+
 :root.light-theme .portfolio-info .role {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+:root.light-theme .portfolio-info .role span{
+    color: white;
+    
+}
+
+/* Light theme button text adjustments */
+:root.light-theme .btn {
+    color: var(--button-text-color) !important;
+}
+
+:root.light-theme .btn:hover {
+    color: var(--button-text-color) !important;
+}
+
+/* Light theme portfolio background overlay */
+:root.light-theme .portfolio-background-overlay {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+:root.light-theme .portfolio-box:hover .portfolio-background-overlay {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+:root.light-theme .portfolio-title h4 {
     color: var(--text-color);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 9);
 }
 
-:root.light-theme .github-link {
-    color: var(--text-color);
-    background: rgba(0, 0, 0, 0.05);
-}
-
-:root.light-theme .github-link:hover {
-    background: rgba(0, 0, 0, 0.1);
+:root.light-theme .github-link{
     color: var(--main-color);
+    background: white;
+    border: 2px solid var(--main-color);
 }
 
-/* Light theme portfolio overlay */
-:root.light-theme .portfolio-overlay {
-    background: rgba(255, 255, 255, 0.9);
+:root.light-theme .github-link:hover{
+    color: white;
+    background: var(--main-color);
 }
 
-:root.light-theme .portfolio-overlay i {
-    color: var(--main-color);
+:root.light-theme .github-link:hover span{
+    color: white;
 }
 
 /* Light theme skills bar background */
@@ -172,6 +233,11 @@ body{
 
 :root.light-theme .box .text big sup {
     color: var(--text-color);
+}
+
+:root.light-theme .text-animation span::after{
+    background-color:  rgb(250, 250, 250);  
+    border-left: 3px solid rgb(240, 240, 240);
 }
 
 .logo{
@@ -260,8 +326,8 @@ span{
 .home-img img{
     position: relative;
     top: 2rem;
-    width: 33vw;
-    height: 25vw;
+    width: 35vw;
+    height: 26vw;
     border-radius: 50%;
     box-shadow: 0 0 25px var(--main-color);
     cursor: pointer;
@@ -314,9 +380,13 @@ span{
     color: var(--button-text-color);
     border: 2px solid transparent;
     letter-spacing: 0.1rem;
-    font-weight: 600;
+    font-weight: 700;
     transition: .3s ease-in-out;
     cursor: pointer;
+}
+
+.btn span{
+    color: var(--button-text-color);
 }
 
 .btn:hover{
@@ -561,133 +631,156 @@ span{
 }
 
 .portfolio-box{
-    background-color: var(--card-bg);
-    height: 550px;
+    height: 650px;
     border-radius: 3rem;
-    border: 5px solid transparent;
     cursor: pointer;
     transition: 0.4s ease-in-out;
     position: relative;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
+}
+
+.portfolio-box::before{
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    filter: blur(1px);
+    z-index: 0;
+    border-radius: 3rem;
+    transition: 0.4s ease-in-out;
+}
+
+.portfolio-box:hover::before{
+    filter: blur(0px);
 }
 
 .portfolio-box:hover{
-    background: var(--other-color);
-    color: black;
     border: 3px solid var(--main-color);
     transform: scale(1.03);
 }
 
-.portfolio-image{
-    position: relative;
-    height: 550px;
-    overflow: hidden;
-    border-radius: 3rem 3rem 0 0;
-}
-
-.portfolio-image img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: 0.4s ease-in-out;
-}
-
-.portfolio-overlay{
+.portfolio-background-overlay{
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
+    background: rgba(0, 0, 0, 0.8);
     transition: 0.4s ease-in-out;
+    z-index: 1;
 }
 
-.portfolio-overlay i{
-    font-size: 3rem;
+.portfolio-box:hover .portfolio-background-overlay{
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.portfolio-title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
     color: white;
-    transform: scale(0);
+    z-index: 2;
     transition: 0.4s ease-in-out;
 }
 
-.portfolio-box:hover .portfolio-overlay{
-    opacity: 1;
+.portfolio-title h4{
+    font-size: 4rem;
+    font-weight: 800;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    margin: 0;
 }
 
-.portfolio-box:hover .portfolio-overlay i{
-    transform: scale(1);
-}
-
-.portfolio-box:hover .portfolio-image img{
-    transform: scale(1.1);
+.portfolio-box:hover .portfolio-title{
+    opacity: 0;
+    transform: translate(-50%, -60%);
 }
 
 .portfolio-box .portfolio-info{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--main-color);
+    color: white;
+    padding: 2rem 2.5rem;
+    transform: translateY(100%);
+    transition: 0.4s ease-in-out;
+    height: 50%;
     display: flex;
     flex-direction: column;
-    text-align: left;
-    height: 300px;
     justify-content: flex-start;
-    align-items: baseline;
-    padding: 2rem 2.5rem;
+    z-index: 3;
+    border-radius: 0 0 3rem 3rem;
+}
+
+.portfolio-box:hover .portfolio-info{
+    transform: translateY(0);
 }
 
 .portfolio-info h4{
-    font-size: 2.2rem;
+    font-size: 2.3rem;
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 0.8rem;
+    color: black;
 }
 
 .portfolio-info .role{
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: var(--text-color);
+    color: rgba(0, 0, 0, 0.8);
 }
 
 .portfolio-info .role span{
-    color: var(--main-color);
+    color: black;
     font-weight: 700;
 }
 
 .portfolio-info p:not(.role){
-    font-size: 1.3rem;
+    font-size: 1.7rem;
     font-weight: 400;
-    line-height: 1.5;
-    margin-bottom: 2rem;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
     opacity: 0.9;
+    color: black;
 }
 
 .github-link{
     display: inline-flex;
     align-items: center;
     gap: 0.8rem;
-    background: rgba(0, 0, 0, 0.1);
-    color: var(--text-color);
+    background: black;
+    color: var(--main-color);
     padding: 0.8rem 1.5rem;
     border-radius: 2rem;
     font-size: 1.2rem;
     font-weight: 600;
     transition: 0.3s ease;
-    border: 2px solid transparent;
+    border: 2px solid black;
     text-decoration: none;
     align-self: flex-start;
-    backdrop-filter: blur(10px);
     margin-top: 0.5rem;
 }
 
 .github-link:hover{
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--main-color);
+    color: black;
     border-color: var(--main-color);
-    color: var(--main-color);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.github-link:hover span{
+    color: black;
 }
 
 .github-link i{
@@ -770,63 +863,63 @@ span{
 }
 
 /* Define a total animation cycle of 8.6s (3.6s animation + 5s delay) */
-@keyframes html {
-    0% { width: 0; }
-    41.86% { width: 87%; } /* Animation finishes at 3.6s */
-    100% { width: 87%; } /* Remains at 87% for the next 5s (delay) */
-}
-
-@keyframes css {
-    0% { width: 0; }
-    41.86% { width: 75%; }
-    100% { width: 75%; }
-}
-
 @keyframes c {
     0% { width: 0; }
-    41.86% { width: 76%; }
-    100% { width: 76%; }
+    41.86% { width: 50%; } /* Animation finishes at 3.6s */
+    100% { width: 50%; } /* Remains at 87% for the next 5s (delay) */
 }
 
-@keyframes java {
+@keyframes c-sharp {
     0% { width: 0; }
-    41.86% { width: 60%; }
-    100% { width: 60%; }
+    41.86% { width: 35%; }
+    100% { width: 35%; }
 }
 
-@keyframes figma {
-    0% { width: 0; }
-    41.86% { width: 78%; }
-    100% { width: 78%; }
-}
-
-@keyframes dart {
-    0% { width: 0; }
-    41.86% { width: 58%; }
-    100% { width: 58%; }
-}
-
-@keyframes js {
+@keyframes cpp {
     0% { width: 0; }
     41.86% { width: 40%; }
     100% { width: 40%; }
 }
 
+@keyframes unity {
+    0% { width: 0; }
+    41.86% { width: 57%; }
+    100% { width: 57%; }
+}
+
+@keyframes figma {
+    0% { width: 0; }
+    41.86% { width: 65%; }
+    100% { width: 65%; }
+}
+
+@keyframes dart {
+    0% { width: 0; }
+    41.86% { width: 60%; }
+    100% { width: 60%; }
+}
+
+@keyframes python {
+    0% { width: 0; }
+    41.86% { width: 60%; }
+    100% { width: 60%; }
+}
+
 /* Apply animation to all bars */
-.skill-bar .bar .html {
-    animation: html 8.6s ease-in-out infinite;
-}
-
-.skill-bar .bar .css {
-    animation: css 8.6s ease-in-out infinite;
-}
-
 .skill-bar .bar .c {
     animation: c 8.6s ease-in-out infinite;
 }
 
-.skill-bar .bar .java {
-    animation: java 8.6s ease-in-out infinite;
+.skill-bar .bar .c-sharp {
+    animation: c-sharp 8.6s ease-in-out infinite;
+}
+
+.skill-bar .bar .cpp {
+    animation: cpp 8.6s ease-in-out infinite;
+}
+
+.skill-bar .bar .unity {
+    animation: unity 8.6s ease-in-out infinite;
 }
 
 .skill-bar .bar .figma {
@@ -837,8 +930,8 @@ span{
     animation: dart 8.6s ease-in-out infinite;
 }
 
-.skill-bar .bar .js {
-    animation: js 8.6s ease-in-out infinite;
+.skill-bar .bar .python {
+    animation: python 8.6s ease-in-out infinite;
 }
 
 
@@ -851,9 +944,9 @@ span{
 
 /* Total cycle: 3.6s animation + 5s delay (8.6s) */
 .skill-bar .bar span {
-    animation:
-            html 3.6s ease-in-out forwards infinite,
-            full-cycle 8.6s linear infinite;
+    animation-duration: 8.6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
 }
 
 .professional{
@@ -1015,7 +1108,7 @@ span{
     transform: scale(1.2)translateY(-10px);
     background-color: var(--other-color);
     color: black;
-    border-color: aqua;
+    border-color: var(--other-color);
     box-shadow: 0 0 25px var(--main-color);
 }
 
@@ -1046,6 +1139,21 @@ span{
 .footer .copyright{
     text-align: center;
     margin-top: 5rem;
+}
+
+/* Position spécifique pour le premier portfolio box (LOCINDOOR) */
+.portfolio-box:nth-child(1)::before {
+    background-position: center center;
+}
+
+/* Position spécifique pour le deuxième portfolio box (GREEN CITY) */
+.portfolio-box:nth-child(2)::before {
+    background-position: center top;
+}
+
+/* Position spécifique pour le troisième portfolio box (FLB CONSULTANT) */
+.portfolio-box:nth-child(3)::before {
+    background-position: center top;
 }
 
 
@@ -1104,6 +1212,11 @@ span{
     
     .header-controls {
         gap: 1.5rem;
+    }
+    
+    #language-toggle {
+        font-size: 2.2rem;
+        padding: 0.3rem;
     }
     
     #theme-toggle {
@@ -1175,6 +1288,11 @@ span{
         gap: 1rem;
     }
     
+    #language-toggle {
+        font-size: 2rem;
+        padding: 0.2rem;
+    }
+    
     #theme-toggle {
         font-size: 2rem;
         padding: 0.2rem;
@@ -1221,12 +1339,12 @@ span{
         height: 500px;
     }
 
-    .portfolio-image{
-        height: 220px;
+    .portfolio-title h4{
+        font-size: 2.5rem;
     }
 
     .portfolio-info{
-        height: 280px;
+        height: 45%;
         padding: 1.5rem 2rem;
     }
 
@@ -1240,6 +1358,8 @@ span{
 
     .portfolio-info p:not(.role){
         font-size: 1.2rem;
+        line-height: 1.3;
+        margin-bottom: 1rem;
     }
 
     .github-link{
