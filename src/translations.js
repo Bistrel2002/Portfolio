@@ -10,7 +10,7 @@ const translations = {
         
         // Hero section
         hero_title: "Hellooo! It's <span>Bistrel</span>",
-        hero_subtitle: "I'm a <span> </span>",
+        hero_subtitle: "I've experience as a <span> </span>",
         hero_description: "21-year-old student in his third year at ALGOSUP, deeply immersed in advanced studies that focus on technology and software development. With a keen interest in both theoretical and practical applications, I'm building a strong foundation in programming, software engineering, and creative problem-solving. My experience at ALGOSUP has allowed me to work on cutting-edge projects, including FPGA design, augmented reality systems, and game development, showcasing my passion for innovation and technology-driven solutions. I'm constantly pushing boundaries to hone my skills and prepare for a dynamic career in tech.",
         
         // Buttons
@@ -78,7 +78,7 @@ const translations = {
         
         // Hero section
         hero_title: "Salut ! C'est <span>Bistrel</span>",
-        hero_subtitle: "Je suis un <span> </span>",
+        hero_subtitle: "Expérience comme un <span> </span>",
         hero_description: "Étudiant de 21 ans en troisième année à ALGOSUP, profondément immergé dans des études avancées axées sur la technologie et le développement logiciel. Avec un vif intérêt pour les applications théoriques et pratiques, je construis une base solide en programmation, ingénierie logicielle et résolution créative de problèmes. Mon expérience à ALGOSUP m'a permis de travailler sur des projets de pointe, notamment la conception FPGA, les systèmes de réalité augmentée et le développement de jeux, démontrant ma passion pour l'innovation et les solutions technologiques. Je repousse constamment les limites pour perfectionner mes compétences et me préparer à une carrière dynamique dans la tech.",
         
         // Buttons
@@ -232,9 +232,9 @@ class TranslationManager {
             @keyframes words {
                 0%, 20% { content: " Architecte Logiciel"; }
                 21%, 40% { content: " Ingénieur Logiciel"; }
-                41%, 60% { content: " Concepteur Frontend"; }
+                41%, 60% { content: " Chef de Projet"; }
                 61%, 80% { content: " Designer UX/UI"; }
-                81%, 100% { content: " Développeur d'App"; }
+                81%, 100% { content: " Program Manager"; }
                 101%, 120% { content: " Chef de Projet"; }
                 121%, 140% { content: " Lead Technique"; }
                 141%, 160% { content: " Program Manager"; }
@@ -243,9 +243,9 @@ class TranslationManager {
             @keyframes words {
                 0%, 20% { content: " Software Architect"; }
                 21%, 40% { content: " Software Engineer"; }
-                41%, 60% { content: " Frontend Designer"; }
+                41%, 60% { content: " Project Manager"; }
                 61%, 80% { content: " UX / UI Designer"; }
-                81%, 100% { content: " App Developer"; }
+                81%, 100% { content: " Program Manager"; }
                 101%, 120% { content: " Project Management"; }
                 121%, 140% { content: " Technical Lead"; }
                 141%, 160% { content: " Program Management"; }
