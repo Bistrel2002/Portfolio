@@ -279,7 +279,7 @@ body{
 /* Light theme mobile menu */
 @media(max-width: 795px) {
     :root.light-theme .navbar {
-        background: rgba(255, 255, 255, 0.98) !important;
+        background: rgba(255, 255, 255, 0.8) !important;
         height: 100vh !important;
         min-height: 100vh !important;
         max-height: 100vh !important;
