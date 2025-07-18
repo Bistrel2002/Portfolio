@@ -27,6 +27,22 @@ menuIcon.onclick = () =>{
     navbar.classList.toggle('active')
 }
 
+// Fermer le menu quand on clique sur un lien
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        menuIcon.classList.remove('bx-x');
+        navbar.classList.remove('active');
+    });
+});
+
+// Fermer le menu quand on clique en dehors
+document.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target) && !menuIcon.contains(e.target) && navbar.classList.contains('active')) {
+        menuIcon.classList.remove('bx-x');
+        navbar.classList.remove('active');
+    }
+});
+
 
 const boxes = document.querySelectorAll('.box');
 
