@@ -78,7 +78,7 @@ const translations = {
         
         // Hero section
         hero_title: "Salut ! C'est <span>Bistrel</span>",
-        hero_subtitle: "Expérience comme un <span> </span>",
+        hero_subtitle: "Expérience en tant que <span> </span>",
         hero_description: "Étudiant de 21 ans en troisième année à ALGOSUP, profondément immergé dans des études avancées axées sur la technologie et le développement logiciel. Avec un vif intérêt pour les applications théoriques et pratiques, je construis une base solide en programmation, ingénierie logicielle et résolution créative de problèmes. Mon expérience à ALGOSUP m'a permis de travailler sur des projets de pointe, notamment la conception FPGA, les systèmes de réalité augmentée et le développement de jeux, démontrant ma passion pour l'innovation et les solutions technologiques. Je repousse constamment les limites pour perfectionner mes compétences et me préparer à une carrière dynamique dans la tech.",
         
         // Buttons
