@@ -1705,6 +1705,12 @@ span{
         max-width: 100vw !important;
     }
 
+    /* Responsive heading sizes for mobile */
+    .heading {
+        font-size: 6.5rem !important;
+        margin: 3rem 0rem !important;
+    }
+
     .home {
         flex-direction: column-reverse;
         margin: 2rem 1rem;
@@ -1863,6 +1869,10 @@ span{
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
+    }
+
+    .skill-main h3{
+        font-size: 3.6rem;
     }
 
     .skill-left .skill-bar .info{

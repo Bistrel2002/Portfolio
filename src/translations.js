@@ -20,7 +20,7 @@ const translations = {
         // Section headings
         section_education: "Education",
         section_portfolio: "Portfolio", 
-        section_competence: "Competence",
+        section_competence: "Skills",
         section_contact: "Contact <span>Me</span>",
         
         // Skills section
