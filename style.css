@@ -132,12 +132,7 @@ body{
 
 /* Light theme adjustments */
 :root.light-theme .portfolio {
-    color: white;
-    
-}
-
-:root.light-theme .portfolio-box {
-    background: rgba(100, 100, 100, 0.3);
+    background: var(--background-image);
 }
 
 :root.light-theme .portfolio h2 {
@@ -152,27 +147,86 @@ body{
     color: white;
 }
 
-:root.light-theme .portfolio-box:hover::before {
-    filter: blur(0px);
-
-}
-
 /* Light theme portfolio adjustments */
-:root.light-theme .portfolio-info h4 {
+:root.light-theme .project-card {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+:root.light-theme .project-card:hover {
+    box-shadow: 0 20px 50px rgba(0, 122, 204, 0.15);
+    border-color: var(--main-color);
+}
+
+:root.light-theme .project-overlay {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(0.4px);
+}
+
+:root.light-theme .project-card:hover .project-overlay {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(3px);
+}
+
+:root.light-theme .project-meta h3 {
+    color: var(--text-color);
+    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.3);
+}
+
+:root.light-theme .project-content p {
+    color: var(--secondary-color);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+:root.light-theme .project-meta .role {
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+:root.light-theme .project-meta .role span {
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.9);
+}
+
+:root.light-theme .tag {
+    background: rgba(0, 122, 204, 0.1);
+    color: var(--main-color);
+    border-color: rgba(0, 122, 204, 0.3);
+}
+
+:root.light-theme .tag:hover {
+    background: var(--main-color);
     color: white;
 }
 
-:root.light-theme .portfolio-info p:not(.role) {
+:root.light-theme .project-link {
+    background: var(--main-color);
     color: white;
+    border-color: var(--main-color);
+    box-shadow: 0 5px 15px rgba(0, 122, 204, 0.3);
 }
 
-:root.light-theme .portfolio-info .role {
-    color: rgba(255, 255, 255, 0.9);
+:root.light-theme .project-link:hover {
+    background: transparent;
+    color: var(--main-color);
+    box-shadow: 0 8px 25px rgba(0, 122, 204, 0.4);
 }
 
-:root.light-theme .portfolio-info .role span{
+:root.light-theme .timeline-line {
+    background: linear-gradient(180deg, var(--main-color), var(--tertiary-color));
+    box-shadow: 0 0 10px rgba(0, 122, 204, 0.3);
+}
+
+:root.light-theme .project-card::before {
+    background: var(--main-color);
+    box-shadow: 0 0 15px rgba(0, 122, 204, 0.5);
+}
+
+:root.light-theme .project-icon {
+    background: linear-gradient(135deg, var(--main-color), var(--tertiary-color));
     color: white;
-    
+    box-shadow: 0 8px 25px rgba(0, 122, 204, 0.3);
+}
+
+:root.light-theme .project-card:hover .project-icon {
+    box-shadow: 0 12px 35px rgba(0, 122, 204, 0.5);
 }
 
 /* Light theme button text adjustments */
@@ -184,34 +238,7 @@ body{
     color: var(--button-text-color) !important;
 }
 
-/* Light theme portfolio background overlay */
-:root.light-theme .portfolio-background-overlay {
-    background: rgba(255, 255, 255, 0.7);
-}
-
-:root.light-theme .portfolio-box:hover .portfolio-background-overlay {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-:root.light-theme .portfolio-title h4 {
-    color: var(--text-color);
-    text-shadow: 1px 1px 1px rgba(255, 255, 255, 9);
-}
-
-:root.light-theme .github-link{
-    color: var(--main-color);
-    background: white;
-    border: 2px solid var(--main-color);
-}
-
-:root.light-theme .github-link:hover{
-    color: white;
-    background: var(--main-color);
-}
-
-:root.light-theme .github-link:hover span{
-    color: white;
-}
+/* Old github-link light theme styles removed - now using .project-link */
 
 /* Light theme skills bar background */
 :root.light-theme .skill-left .skill-bar .bar {
@@ -739,179 +766,285 @@ span{
 }
 
 .portfolio{
-    color: black;
     background-image: var(--section-bg);
     transition: background 0.3s ease;
+    padding: 8rem 12% 5rem;
+    position: relative;
 }
 
 .portfolio h2{
-    margin-bottom: 5rem;
-    color: white;
+    margin-bottom: 6rem;
+    color: var(--text-color);
+    text-align: center;
 }
 
-.portfolio-container{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    align-items: center;
-    gap: 2.5rem;
-}
-
-.portfolio-box{
-    height: 650px;
-    border-radius: 3rem;
-    cursor: pointer;
-    transition: 0.4s ease-in-out;
+.portfolio-timeline{
     position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline-line{
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--main-color), var(--tertiary-color));
+    transform: translateX(-50%);
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+}
+
+.timeline-project{
+    position: relative;
+    margin-bottom: 6rem;
+    width: calc(50% - 4rem);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.timeline-project.left{
+    left: 0;
+    text-align: right;
+    animation-delay: 0.2s;
+}
+
+.timeline-project.right{
+    left: calc(50% + 4rem);
+    text-align: left;
+    animation-delay: 0.4s;
+}
+
+.timeline-project:nth-child(odd) { animation-delay: 0.3s; }
+.timeline-project:nth-child(even) { animation-delay: 0.6s; }
+
+.project-card{
+    background: var(--section-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 2rem;
+    padding: 3rem;
+    position: relative;
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
     overflow: hidden;
 }
 
-.portfolio-box::before{
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    background-image: inherit;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    filter: blur(1px);
-    z-index: 0;
-    border-radius: 3rem;
-    transition: 0.4s ease-in-out;
-}
-
-.portfolio-box:hover::before{
-    filter: blur(0px);
-}
-
-.portfolio-box:hover{
-    border: 3px solid var(--main-color);
-    transform: scale(1.03);
-}
-
-.portfolio-background-overlay{
+.project-overlay{
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    transition: 0.4s ease-in-out;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(0.4px);
+    transition: all 0.4s ease;
     z-index: 1;
 }
 
-.portfolio-box:hover .portfolio-background-overlay{
-    background: rgba(0, 0, 0, 0.6);
-}
-
-.portfolio-title{
+.project-card::before{
+    content: '';
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    z-index: 2;
-    transition: 0.4s ease-in-out;
-}
-
-.portfolio-title h4{
-    font-size: 4rem;
-    font-weight: 800;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-    margin: 0;
-}
-
-.portfolio-box:hover .portfolio-title{
-    opacity: 0;
-    transform: translate(-50%, -60%);
-}
-
-.portfolio-box .portfolio-info{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    width: 20px;
+    height: 20px;
     background: var(--main-color);
-    color: white;
-    padding: 2rem 2.5rem;
-    transform: translateY(100%);
-    transition: 0.4s ease-in-out;
-    height: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    z-index: 3;
-    border-radius: 0 0 3rem 3rem;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
 }
 
-.portfolio-box:hover .portfolio-info{
+.timeline-project.left .project-card::before{
+    right: -4.2rem;
+}
+
+.timeline-project.right .project-card::before{
+    left: -4.2rem;
+}
+
+.project-card:hover{
+    transform: translateY(-10px);
+    border-color: var(--main-color);
+    box-shadow: 0 20px 50px rgba(0, 255, 65, 0.15);
+}
+
+.project-card:hover .project-overlay{
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(2px);
+}
+
+.project-card:hover .project-content{
+    opacity: 1;
     transform: translateY(0);
 }
 
-.portfolio-info h4{
-    font-size: 2.3rem;
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 0.8rem;
-    color: black;
+.project-card:hover .project-meta .role{
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.portfolio-info .role{
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: rgba(0, 0, 0, 0.8);
-}
-
-.portfolio-info .role span{
-    color: black;
-    font-weight: 700;
-}
-
-.portfolio-info p:not(.role){
-    font-size: 1.5rem;
-    font-weight: 400;
-    line-height: 1.4;
-    margin-bottom: 1.5rem;
-    opacity: 0.9;
-    color: black;
-}
-
-.github-link{
-    display: inline-flex;
+.project-header{
+    display: flex;
     align-items: center;
-    gap: 0.8rem;
-    background: black;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.timeline-project.right .project-header{
+    flex-direction: row;
+}
+
+.timeline-project.left .project-header{
+    flex-direction: row-reverse;
+}
+
+.project-icon{
+    width: 6rem;
+    height: 6rem;
+    background: linear-gradient(135deg, var(--main-color), var(--tertiary-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: black;
+    box-shadow: 0 8px 25px rgba(0, 255, 65, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 3;
+}
+
+.project-card:hover .project-icon{
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 12px 35px rgba(0, 255, 65, 0.5);
+}
+
+.project-meta h3{
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+    transition: all 0.4s ease;
+}
+
+.project-meta .role{
+    font-size: 1.4rem;
+    color: var(--secondary-color);
+    font-weight: 500;
+    transition: all 0.4s ease;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.project-meta .role span{
+    color: var(--main-color);
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.project-content{
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.project-content p{
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.project-tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.timeline-project.left .project-tags{
+    justify-content: flex-end;
+}
+
+.timeline-project.right .project-tags{
+    justify-content: flex-start;
+}
+
+.tag{
+    background: rgba(0, 255, 65, 0.1);
     color: var(--main-color);
     padding: 0.8rem 1.5rem;
     border-radius: 2rem;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 600;
-    transition: 0.3s ease;
-    border: 2px solid black;
-    text-decoration: none;
-    align-self: flex-start;
-    margin-top: 0.5rem;
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    transition: all 0.3s ease;
 }
 
-.github-link:hover{
+.tag:hover{
     background: var(--main-color);
     color: black;
-    border-color: var(--main-color);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.github-link:hover span{
+.project-link{
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--main-color);
     color: black;
+    padding: 1.2rem 2.5rem;
+    border-radius: 3rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid var(--main-color);
+    box-shadow: 0 5px 15px rgba(0, 255, 65, 0.3);
 }
 
-.github-link i{
-    font-size: 1.5rem;
+.project-link:hover{
+    background: transparent;
+    color: var(--main-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 255, 65, 0.4);
 }
+
+.project-link i{
+    font-size: 1.8rem;
+    transition: transform 0.3s ease;
+}
+
+.project-link:hover i{
+    transform: scale(1.2);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Old github-link styles removed - now using .project-link */
 
 .competence{
     background-image: var(--section-bg);
@@ -1291,10 +1424,28 @@ span{
     html{
         font-size: 55%;
     }
-    .portfolio-container{
-        padding-bottom: 7rem;
-        grid-template-columns: repeat(2,1fr);
-        margin: 0 5rem;
+    
+    .portfolio-timeline{
+        max-width: 1000px;
+        padding: 0 2rem;
+    }
+    
+    .timeline-project{
+        width: calc(50% - 3rem);
+    }
+    
+    .project-card{
+        padding: 2.5rem;
+    }
+    
+    .project-icon{
+        width: 5rem;
+        height: 5rem;
+        font-size: 2.2rem;
+    }
+    
+    .project-meta h3{
+        font-size: 2.4rem;
     }
 }
 
@@ -1320,10 +1471,19 @@ span{
         left: 0;
     }
     .portfolio{
-        padding-bottom: 7rem;
+        padding: 6rem 5% 4rem;
     }
-    .portfolio{
-        padding-bottom: 7rem;
+    
+    .portfolio-timeline{
+        max-width: 900px;
+    }
+    
+    .timeline-project{
+        width: calc(50% - 2.5rem);
+    }
+    
+    .project-card{
+        padding: 2rem;
     }
     .testimonial .wrapper{
         grid-template-columns: repeat(1,1fr);
@@ -1595,56 +1755,107 @@ span{
         max-height: 250px;
     }
 
-    .portfolio-container {
-        grid-template-columns: repeat(1,1fr);
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        gap: 2rem;
+    /* Portfolio Timeline Mobile Styles */
+    .portfolio {
+        padding: 4rem 5% 3rem;
     }
-
+    
     .portfolio h2{
-        margin-bottom: 3rem;
+        margin-bottom: 4rem;
     }
-
-    .portfolio-box{
-        height: 500px;
-        width: 100%;
+    
+    .portfolio-timeline {
         max-width: 100%;
-        box-sizing: border-box;
+        padding: 0 1rem;
     }
-
-    .portfolio-title h4{
-        font-size: 2.5rem;
+    
+    .timeline-line {
+        left: 2rem;
+        transform: none;
+    }
+    
+    .timeline-project {
+        width: calc(100% - 4rem);
+        left: 4rem !important;
+        text-align: left !important;
+        margin-bottom: 4rem;
+    }
+    
+    .timeline-project.left,
+    .timeline-project.right {
+        left: 4rem !important;
+        text-align: left !important;
+    }
+    
+    .timeline-project.left .project-header,
+    .timeline-project.right .project-header {
+        flex-direction: row !important;
+    }
+    
+    .timeline-project.left .project-tags,
+    .timeline-project.right .project-tags {
+        justify-content: flex-start !important;
+    }
+    
+    .project-card {
+        padding: 2rem;
+        margin-left: 1rem;
+    }
+    
+    .project-card::before {
+        left: -3.2rem !important;
+        right: auto !important;
+    }
+    
+    .project-icon {
+        width: 5rem;
+        height: 5rem;
+        font-size: 2.2rem;
+    }
+    
+    .project-meta h3 {
+        font-size: 2.2rem;
         word-wrap: break-word;
     }
-
-    .portfolio-info{
-        height: 45%;
-        padding: 1.5rem 2rem;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .portfolio-info h4{
-        font-size: 1.8rem;
-        word-wrap: break-word;
-    }
-
-    .portfolio-info .role{
+    
+    .project-meta .role {
         font-size: 1.2rem;
     }
-
-    .portfolio-info p:not(.role){
-        font-size: 1.2rem;
-        line-height: 1.3;
-        margin-bottom: 1rem;
+    
+    .project-content p {
+        font-size: 1.4rem;
+        line-height: 1.5;
         word-wrap: break-word;
     }
-
-    .github-link{
+    
+    .project-content {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    
+    .project-card:hover .project-content {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .project-meta .role {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    
+    .project-card:hover .project-meta .role {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .tag {
         font-size: 1.1rem;
-        padding: 0.7rem 1.3rem;
+        padding: 0.6rem 1.2rem;
+    }
+    
+    .project-link {
+        font-size: 1.2rem;
+        padding: 1rem 2rem;
     }
 
     .skill-main {
@@ -1822,56 +2033,73 @@ span{
         box-sizing: border-box;
     }
 
-    .portfolio-container {
-        grid-template-columns: repeat(1,1fr);
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        gap: 2rem;
+    /* Portfolio Timeline Tablet Styles */
+    .portfolio {
+        padding: 5rem 5% 3rem;
     }
-
+    
     .portfolio h2{
-        margin-bottom: 3rem;
+        margin-bottom: 4rem;
     }
-
-    .portfolio-box{
-        height: 500px;
-        width: 100%;
+    
+    .portfolio-timeline {
         max-width: 100%;
-        box-sizing: border-box;
+        padding: 0 1.5rem;
     }
-
-    .portfolio-title h4{
-        font-size: 2.5rem;
+    
+    .timeline-project {
+        width: calc(50% - 3rem);
+        margin-bottom: 5rem;
+    }
+    
+    .project-card {
+        padding: 2.5rem;
+    }
+    
+    .project-icon {
+        width: 5.5rem;
+        height: 5.5rem;
+        font-size: 2.4rem;
+    }
+    
+    .project-meta h3 {
+        font-size: 2.6rem;
         word-wrap: break-word;
     }
-
-    .portfolio-info{
-        height: 45%;
-        padding: 1.5rem 2rem;
-        width: 100%;
-        box-sizing: border-box;
+    
+    .project-meta .role {
+        font-size: 1.3rem;
     }
+    
+         .project-content p {
+         font-size: 1.5rem;
+         line-height: 1.5;
+         word-wrap: break-word;
+     }
+     
+     .project-content {
+         opacity: 0;
+         transform: translateY(20px);
+     }
+     
+     .project-card:hover .project-content {
+         opacity: 1;
+         transform: translateY(0);
+     }
+     
+     .project-meta .role {
+         opacity: 0;
+         transform: translateY(10px);
+     }
+     
+     .project-card:hover .project-meta .role {
+         opacity: 1;
+         transform: translateY(0);
+     }
 
-    .portfolio-info h4{
-        font-size: 1.8rem;
-        word-wrap: break-word;
-    }
-
-    .portfolio-info .role{
+    .project-link {
         font-size: 1.2rem;
-    }
-
-    .portfolio-info p:not(.role){
-        font-size: 1.2rem;
-        line-height: 1.3;
-        margin-bottom: 1rem;
-        word-wrap: break-word;
-    }
-
-    .github-link{
-        font-size: 1.1rem;
-        padding: 0.7rem 1.3rem;
+        padding: 1rem 2rem;
     }
 
     .skill-main {
@@ -2006,5 +2234,81 @@ span{
     .header {
         overflow-x: hidden !important;
         max-width: 100vw !important;
+    }
+    
+    /* Portfolio Timeline Very Small Screens */
+    .portfolio {
+        padding: 3rem 3% 2rem !important;
+    }
+    
+    .portfolio-timeline {
+        padding: 0 0.5rem !important;
+    }
+    
+    .timeline-line {
+        left: 1.5rem !important;
+    }
+    
+    .timeline-project {
+        width: calc(100% - 3rem) !important;
+        left: 3rem !important;
+        margin-bottom: 3rem !important;
+    }
+    
+    .project-card {
+        padding: 1.5rem !important;
+        margin-left: 0.5rem !important;
+    }
+    
+    .project-card::before {
+        left: -2.7rem !important;
+    }
+    
+    .project-icon {
+        width: 4rem !important;
+        height: 4rem !important;
+        font-size: 1.8rem !important;
+    }
+    
+    .project-meta h3 {
+        font-size: 1.8rem !important;
+    }
+    
+    .project-meta .role {
+        font-size: 1rem !important;
+    }
+    
+    .project-content p {
+        font-size: 1.2rem !important;
+    }
+    
+    .project-content {
+        opacity: 0 !important;
+        transform: translateY(20px) !important;
+    }
+    
+    .project-card:hover .project-content {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+    
+    .project-meta .role {
+        opacity: 0 !important;
+        transform: translateY(10px) !important;
+    }
+    
+    .project-card:hover .project-meta .role {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+    
+    .tag {
+        font-size: 1rem !important;
+        padding: 0.5rem 1rem !important;
+    }
+    
+    .project-link {
+        font-size: 1.1rem !important;
+        padding: 0.8rem 1.5rem !important;
     }
 }
